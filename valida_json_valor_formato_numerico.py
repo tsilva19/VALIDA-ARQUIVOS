@@ -1,6 +1,7 @@
 import json
 import re
 
+
 # Carregue o arquivo JSON
 with open('arquivo.json', encoding='utf-8') as f:
     json_object = json.load(f)

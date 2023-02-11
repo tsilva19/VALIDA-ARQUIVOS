@@ -1,16 +1,12 @@
 import json
-import re
 
-# Carregue o arquivo JSON
-with open('arquivo.json', encoding='utf-8') as f:
-    json_object = json.load(f)
+# Defina sua string JSON
+json_string = '{"nome": "João", "idade": 300000.00}'
 
-# Compile a expressão regular para encontrar caracteres acentuados
-acentos = re.compile(r'[áàãâéêíóôõúüç]', re.IGNORECASE)
-
-
-# Percorra todos os campos do objeto JSON e verifique se há caracteres
-# acentuados
-for key in json_object:
-    if acentos.search(key) is not None:
-        print(f'O campo "{key}" contém caracteres acentuados')
+try:
+    # Tente carregar a string JSON
+    json_object = json.loads(json_string)
+    print("JSON válido")
+except json.JSONDecodeError:
+    # Se houver um erro, trate-o aqui
+    print("JSON inválido")
